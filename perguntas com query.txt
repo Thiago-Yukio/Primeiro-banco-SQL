@@ -1,0 +1,70 @@
+-- Quais são os nomes e estados de todos os clientes cadastrados?
+SELECT primeiro_nome, sobrenome, estado
+FROM cliente;
+
+-- Quais pedidos estão com status confirmado?
+SELECT *
+FROM pedido
+WHERE status_pedido = 'confirmado';
+
+-- Quais pagamentos possuem valor maior que 100 e estão pagos?
+SELECT *
+FROM pagamento
+WHERE valor > 100
+AND status_pagamento = 'pago';
+
+-- Qual seria o valor do pagamento com um frete adicional de 10 reais?
+SELECT id_pagamento,
+valor,
+valor + 10 AS valor_com_frete
+FROM pagamento;
+
+-- Quais pagamentos foram feitos, ordenados do maior valor para o menor?
+SELECT *
+FROM pagamento
+ORDER BY valor DESC;
+
+-- Qual cliente realizou cada pedido?
+SELECT
+c.primeiro_nome,
+c.sobrenome,
+p.id_pedido,
+p.status_pedido
+FROM cliente c
+JOIN pedido p
+ON c.id_cliente = p.id_cliente;
+
+-- Qual o valor e status do pagamento de cada pedido?
+SELECT
+p.id_pedido,
+p.status_pedido,
+pg.valor,
+pg.status_pagamento
+FROM pedido p
+JOIN pagamento pg
+ON p.id_pedido = pg.id_pedido;
+
+-- Quantas vendas cada vendedor realizou?
+SELECT
+id_vendedor,
+SUM(quantidade) AS total_vendas
+FROM venda
+GROUP BY id_vendedor;
+
+-- Quais vendedores venderam mais de 5 produtos?
+SELECT
+id_vendedor,
+SUM(quantidade) AS total_vendas
+FROM venda
+GROUP BY id_vendedor
+HAVING SUM(quantidade) > 5;
+
+-- Qual vendedor vendeu mais produtos considerando todos os registros?
+SELECT
+v.nome_social,
+SUM(vd.quantidade) AS total_vendido
+FROM vendedor v
+JOIN venda vd
+ON v.id_vendedor = vd.id_vendedor
+GROUP BY v.nome_social
+ORDER BY total_vendido DESC;
