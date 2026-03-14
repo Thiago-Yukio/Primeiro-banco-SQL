@@ -1,106 +1,83 @@
---Dados criados com auxilio de IA
+-- MAIS CLIENTES (Diversificando perfis)
 
-INSERT INTO pedido
-(id_cliente,status_pedido,descritivo,frete,pagamento_boleto)
-VALUES
-(1,'confirmado','Compra notebook',20,false),
-(2,'confirmado','Compra mouse',10,false),
-(3,'em andamento','Compra teclado',12,false),
-(4,'confirmado','Compra camisa',15,true),
-(5,'cancelado','Compra calça',15,false),
-(6,'confirmado','Compra boneca',10,false),
-(7,'confirmado','Compra carrinho',10,true),
-(8,'confirmado','Compra chocolate',8,false),
-(9,'em andamento','Compra biscoito',8,false),
-(10,'confirmado','Compra relógio',15,false),
-(11,'confirmado','Compra perfume',12,false),
-(12,'confirmado','Compra martelo',11,false),
-(13,'confirmado','Compra detergente',7,false),
-(14,'confirmado','Compra sabonete',7,false),
-(15,'confirmado','Compra bola',14,false),
-(16,'confirmado','Compra cadeira',20,false),
-(17,'confirmado','Compra mesa',25,false),
-(18,'confirmado','Compra mochila',12,false),
-(19,'confirmado','Compra tênis',15,false),
-(20,'confirmado','Compra lanterna',9,false);
+INSERT INTO cliente (data_nascimento, primeiro_nome, nome_do_meio, sobrenome, cpf, bairro, estado, nacionalidade)
+VALUES 
+('1998-12-01', 'Ana', 'P.', 'Costa', '11122233344', 'Copacabana', 'Rio de Janeiro', 'Brasileira'),
+('1975-03-25', 'Carlos', 'E.', 'Mendes', '55566677788', 'Batul', 'Paraná', 'Brasileira'),
+('1992-07-14', 'Julia', NULL, 'Santos', '99988877766', 'Boa Viagem', 'Pernambuco', 'Brasileira');
 
-INSERT INTO pagamento
-(id_pedido,tipo_pagamento,valor,status_pagamento)
-VALUES
-(1,'pix',3500,'pago'),
-(2,'débito',150,'pago'),
-(3,'crédito',400,'pendente'),
-(4,'boleto',120,'pago'),
-(5,'pix',200,'cancelado'),
-(6,'crédito',90,'pago'),
-(7,'pix',80,'pago'),
-(8,'débito',20,'pago'),
-(9,'pix',25,'pendente'),
-(10,'crédito',500,'pago'),
-(11,'pix',300,'pago'),
-(12,'débito',70,'pago'),
-(13,'pix',15,'pago'),
-(14,'pix',12,'pago'),
-(15,'crédito',100,'pago'),
-(16,'boleto',450,'pendente'),
-(17,'crédito',600,'pago'),
-(18,'pix',120,'pago'),
-(19,'crédito',350,'pago'),
-(20,'débito',80,'pago');
+-- MAIS PRODUTOS (Testando os ENUMs de categoria)
 
-INSERT INTO estoque
-(id_produto,local_estoque,quantidade)
-VALUES
-(1,'Galpao A',10),
-(2,'Galpao A',15),
-(3,'Galpao A',12),
-(4,'Galpao B',30),
-(5,'Galpao B',25),
-(6,'Galpao C',40),
-(7,'Galpao C',35),
-(8,'Galpao D',50),
-(9,'Galpao D',45),
-(10,'Galpao A',20),
-(11,'Galpao B',18),
-(12,'Galpao C',22),
-(13,'Galpao D',60),
-(14,'Galpao D',55),
-(15,'Galpao C',28),
-(16,'Galpao A',14),
-(17,'Galpao A',16),
-(18,'Galpao B',19),
-(19,'Galpao C',24),
-(20,'Galpao D',27);
+INSERT INTO produto (nome_produto, categoria_infantil, categoria, fabrica, qualidade)
+VALUES 
+('Batom Matte', false, 'cosmético', 'BelezaPura', 4.8),
+('Cereal Matinal', true, 'alimento', 'NutriVida', 3.5),
+('Cadeira Office', false, 'móvel', 'ConfortoSA', 4.2),
+('Martelo Aço', false, 'ferramenta', 'BuildIt', 4.9),
+('Detergente 5L', false, 'limpeza', 'CleanHouse', 3.0);
 
-INSERT INTO vendedor
-(cnpj,nome_social,bairro,estado,nacionalidade,contato,data_nascimento,cpf)
-VALUES
-('10000000000001','Loja Tech','Centro','SP','Brasileiro','11999990001','1985-01-01','20000000001'),
-('10000000000002','Loja Moda','Centro','SP','Brasileiro','11999990002','1986-01-01','20000000002'),
-('10000000000003','Loja Brinquedo','Centro','SP','Brasileiro','11999990003','1987-01-01','20000000003'),
-('10000000000004','Loja Alimentos','Centro','SP','Brasileiro','11999990004','1988-01-01','20000000004'),
-('10000000000005','Loja Acessorios','Centro','SP','Brasileiro','11999990005','1989-01-01','20000000005');
+-- MAIS FORNECEDORES E VENDEDORES
 
-INSERT INTO venda
-(id_produto,quantidade,id_vendedor)
-VALUES
-(1,1,1),
-(2,2,1),
-(3,1,1),
-(4,3,2),
-(5,2,2),
-(6,1,3),
-(7,2,3),
-(8,5,4),
-(9,4,4),
-(10,1,5),
-(11,1,5),
-(12,2,1),
-(13,3,2),
-(14,2,2),
-(15,1,3),
-(16,1,4),
-(17,1,4),
-(18,2,5),
-(19,1,5),
-(20,3,1);
+INSERT INTO fornecedor (cnpj, nome_social, contato)
+VALUES 
+('222333444555666', 'Global Logistics', '21977776666'),
+('999888777666555', 'Importadora Express', '11955554444');
+
+INSERT INTO vendedor (cnpj, nome_social, bairro, estado, nacionalidade, contato, data_nascimento, cpf)
+VALUES 
+('000111222333444', 'Super Mercado X', 'Centro', 'SP', 'Brasileira', '11944443333', '1985-05-10', '44455566677');
+
+--MAIS ESTOQUE 	
+
+INSERT INTO produto (nome_produto, categoria_infantil, categoria, fabrica, qualidade)
+VALUES 
+('Martelo Aço', false, 'ferramenta', 'BuildIt', 4.9),
+('Detergente 5L', false, 'limpeza', 'CleanHouse', 3.0);
+
+INSERT INTO estoque (id_produto, local_estoque, quantidade)
+SELECT id_produto, 'Almoxarifado', 100 
+FROM produto 
+WHERE nome_produto = 'Martelo Aço' 
+LIMIT 1;
+
+INSERT INTO estoque (id_produto, local_estoque, quantidade)
+SELECT id_produto, 'Corredor B', 50 
+FROM produto 
+WHERE nome_produto = 'Detergente 5L' 
+LIMIT 1;
+
+-- MAIS PEDIDO
+
+INSERT INTO pedido (id_cliente, status_pedido, descritivo, frete, pagamento_boleto)
+SELECT id_cliente, 'em andamento', 'Compra de cosméticos', 8.90, true 
+FROM cliente WHERE primeiro_nome = 'Ana' LIMIT 1;
+
+INSERT INTO pedido (id_cliente, status_pedido, descritivo, frete)
+SELECT id_cliente, 'confirmado', 'Equipamento de escritório', 45.00 
+FROM cliente WHERE primeiro_nome = 'Carlos' LIMIT 1;
+
+--MAIS PAGAMENTO
+
+INSERT INTO pagamento (id_pedido, tipo_pagamento, valor, status_pagamento)
+SELECT id_pedido, 'boleto', 58.90, 'pendente' 
+FROM pedido WHERE descritivo = 'Compra de cosméticos' LIMIT 1;
+
+INSERT INTO pagamento (id_pedido, tipo_pagamento, valor, status_pagamento)
+SELECT id_pedido, 'crédito', 850.00, 'pago' 
+FROM pedido WHERE descritivo = 'Equipamento de escritório' LIMIT 1;
+
+--MAIS VENDA
+
+INSERT INTO venda (id_produto, quantidade, id_vendedor)
+VALUES (
+    (SELECT id_produto FROM produto WHERE nome_produto = 'Batom Matte' LIMIT 1),
+    10,
+    (SELECT id_vendedor FROM vendedor WHERE nome_social = 'Super Mercado X' LIMIT 1)
+);
+
+INSERT INTO venda (id_produto, quantidade, id_vendedor)
+VALUES (
+    (SELECT id_produto FROM produto WHERE nome_produto = 'Cadeira Office' LIMIT 1),
+    5,
+    (SELECT id_vendedor FROM vendedor WHERE nome_social = 'Loja do Tech' LIMIT 1)
+);
