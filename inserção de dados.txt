@@ -1,3 +1,5 @@
+# Dados criados por IA
+
 -- MAIS CLIENTES (Diversificando perfis)
 
 INSERT INTO cliente (data_nascimento, primeiro_nome, nome_do_meio, sobrenome, cpf, bairro, estado, nacionalidade)
